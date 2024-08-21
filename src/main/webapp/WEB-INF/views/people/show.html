@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #1A1A1D;
+            color: #ffffff;
+        }
+        .container {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            padding: 15px 30px;
+            font-size: 18px;
+            color: #ffffff;
+            background-color: #6f2232;
+            text-decoration: none;
+            border-radius: 21px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .block{
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h2>Phone Verification</h2>
+
+<form class="block" th:action="@{/people/send-code}" method="post">
+    <label for="phone">Phone Number:</label>
+    <input type="text" id="phone" name="phone" required>
+    <button type="submit">Send Code</button>
+</form>
+
+<form class="block" th:action="@{/people/verify-code}" method="post">
+    <label for="code">Verification Code:</label>
+    <input type="text" id="code" name="code" required>
+    <button type="submit">Verify Code</button>
+</form>
+
+<div th:if="${message}">
+    <p th:text="${message}" th:classappend="${messageType == 'success'} ? 'green' : 'red'"></p>
+</div>
+</div>
+<style>
+    .green {
+        color: green;
+    }
+    .red {
+        color: red;
+    }
+</style>
+</body>
+</html>

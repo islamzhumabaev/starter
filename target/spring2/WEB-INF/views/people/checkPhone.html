@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            color: #ffffff;
+            background-color: #1A1A1D;
+        }
+        .container {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            padding: 15px 30px;
+            font-size: 18px;
+            color: #ffffff;
+            background-color: #6f2232;
+            text-decoration: none;
+            border-radius: 21px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .button {
+            display: inline-block;
+            padding: 15px 30px;
+            background-color: #9a1737;
+            font-size: 18px;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 21px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        .button:hover {
+            background-color: #950740;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+        }
+        .in{
+            width: 250px;
+            height: 45px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+<form th:action="@{/people/check}" method="get">
+    <label for="phoneNumber">Please Enter Your Phone Number(+7 *** *** **** format)</label>
+    <br><br>
+    <input class="in" type="text" id="phoneNumber" name="phoneNumber" required>
+    <br><br>
+    <button class="button" type="submit">Send Code</button>
+</form>
+</div>
+</body>
+</html>
